@@ -8,7 +8,8 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-favicon": "0.0.9",
-    "react-scripts": "1.0.12"
+    "react-scripts": "1.0.12",
+    "victory": "^0.21.5"
   },
   "scripts": {
     "start": "react-scripts start",

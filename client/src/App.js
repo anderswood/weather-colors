@@ -5,6 +5,7 @@ import './App.css';
 import Inputs from './Inputs';
 import CurrentCond from './CurrentCond';
 import Forecast from './Forecast';
+import { fetchWeather } from './helper';
 import { conditions } from './conditionsObj';
 import { key } from './key';
 
@@ -19,18 +20,13 @@ class App extends Component {
   }
 
   componentDidMount () {
-    fetch('/api/weather', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        key: key,
-        lat: 40.016457,
-        long: -105.285884
-      })
-    })
-    .then(jsonWeather => jsonWeather.json())
+    this.updateWeather(40.016457, -105.285884)
+  }
+
+  updateWeather (lat, long) {
+    this.setState({isLoading: true});
+    fetchWeather(key, lat, long)
     .then(weather => {
-      console.log(weather.currently.icon);
       let picURL = conditions[weather.currently.icon].backgroundURL;
       let sectionStyle = { background: `url(${picURL})` };
 
@@ -42,27 +38,11 @@ class App extends Component {
     })
   }
 
-  updateWeather (lat, long) {
-    fetch('/api/weather', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        key: key,
-        lat: lat,
-        long: long
-      })
-    })
-    .then(jsonWeather => jsonWeather.json())
-    .then(weather => {
-      this.setState({weather: weather});
-    })
-  }
-
   render() {
     if (this.state.isLoading) {
       return (
         <section className="App-container" style={ this.state.appStyle } >
-          <h1>LOADING</h1>
+          <h1 className='App-loading'>LOADING</h1>
         </section>
       )
     } else {

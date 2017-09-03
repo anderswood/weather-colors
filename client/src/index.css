@@ -9,7 +9,13 @@ body {
   height: 100vh;
 }
 
-.forecast-minutely {
-  width: 40px;
-  height: 40px;
+.forecast-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.forecast-hourly {
+  /*width: 200px;*/
+  /*height: 350px;*/
 }
