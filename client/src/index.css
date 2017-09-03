@@ -3,3 +3,13 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.App-container {
+  background-size: cover;
+  height: 100vh;
+}
+
+.forecast-minutely {
+  width: 40px;
+  height: 40px;
+}

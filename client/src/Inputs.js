@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { key } from './key';
+// import { key } from './key';
 
 export default class Inputs extends Component {
   constructor () {
@@ -11,20 +11,8 @@ export default class Inputs extends Component {
     }
   }
 
-  getWeather () {
-    fetch('/api/weather', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        key: key,
-        lat: this.state.lat,
-        long: this.state.long
-      })
-    })
-    .then(jsonWeather => jsonWeather.json())
-    .then(weather => {
-      console.log(weather);
-    })
+  handleWeather () {
+    this.props.updateWeather(this.state.lat, this.state.long)
   }
 
   render () {
@@ -45,7 +33,7 @@ export default class Inputs extends Component {
                   value={ this.state.long }
                   onChange={ e => this.setState({long: e.target.value}) }/>
         </label>
-        <button onClick={() => this.getWeather() }>CLICK</button>
+        <button onClick={() => this.handleWeather() }>CLICK</button>
 
       </section>
     )
