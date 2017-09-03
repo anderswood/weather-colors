@@ -1,13 +1,11 @@
-// import { weatherData } from './stubbed';
 import moment from 'moment';
 
 export const currentWeather = (weatherData) => {
-
   return {
     currentTime: weatherData.currently.time,
     icon: weatherData.currently.icon,
     summary: weatherData.currently.summary,
-    currentTemp: 80
+    currentTemp: weatherData.currently.temperature
   }
 }
 

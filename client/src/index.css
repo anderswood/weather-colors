@@ -9,10 +9,17 @@ body {
   height: 100vh;
 }
 
+.header-container {
+}
+
 .forecast-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.forecast {
+  margin: 15px;
 }
 
 .forecast-hourly {

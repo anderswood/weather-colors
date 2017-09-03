@@ -42,6 +42,7 @@ class App extends Component {
     if (this.state.isLoading) {
       return (
         <section className="App-container" style={ this.state.appStyle } >
+          <Favicon url={['https://maxcdn.icons8.com/windows10/PNG/512/Holidays/snowflake-512.png']}/>
           <h1 className='App-loading'>LOADING</h1>
         </section>
       )
@@ -49,8 +50,10 @@ class App extends Component {
       return (
         <section className="App-container" style={ this.state.appStyle } >
           <Favicon url={['https://maxcdn.icons8.com/windows10/PNG/512/Holidays/snowflake-512.png']}/>
-          <Inputs updateWeather={ this.updateWeather.bind(this) } />
-          <CurrentCond weatherObj={ this.state.weather } />
+          <div className='header-container'>
+            <Inputs updateWeather={ this.updateWeather.bind(this) } />
+            <CurrentCond weatherObj={ this.state.weather } />
+          </div>
           <Forecast weatherObj={ this.state.weather } />
         </section>
       );

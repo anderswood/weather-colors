@@ -12,10 +12,6 @@ const Forecast = ({weatherObj}) => {
     const minuteData = minutelyData(weatherObj);
     const hourData = hourlyData(weatherObj);
     const dayData = dailyData(weatherObj);
-
-
-    console.log(minuteData);
-
     const chartStyle = {
       width: '250px',
       height: '250px'
@@ -23,7 +19,7 @@ const Forecast = ({weatherObj}) => {
 
     return (
       <section className='forecast-container'>
-        <div className='forecast-minutely' style={ divStyle }>
+        <div className='forecast forecast-minutely' style={ divStyle }>
           <VictoryChart
             // theme={ VictoryTheme.material }
               style={ chartStyle }
@@ -41,7 +37,7 @@ const Forecast = ({weatherObj}) => {
               y='precipProbability'/>
           </VictoryChart>
         </div>
-        <div className='forecast-hourly' style={ divStyle }>
+        <div className='forecast forecast-hourly' style={ divStyle }>
           <VictoryChart
                         // theme={ VictoryTheme.material }
                         style={ chartStyle }
@@ -58,7 +54,7 @@ const Forecast = ({weatherObj}) => {
                         y='temperature'/>
           </VictoryChart>
         </div>
-        <div className='forecast-daily' style={ divStyle }>
+        <div className='forecast forecast-daily' style={ divStyle }>
           <VictoryChart
                         // theme={ VictoryTheme.material }
                         style={ chartStyle }
