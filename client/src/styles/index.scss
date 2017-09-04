@@ -5,10 +5,24 @@ body {
 }
 
 .App-container {
-  // background-size: cover;
-  // background-attachment: fixed;
   height: 100vh;
   padding: 10px;
+}
+
+.App-loading {
+  color: #FFF;
+  margin-top: 50%;
+  text-align: center;
+  animation: flashing-loading .7s infinite;
+}
+
+@keyframes flashing-loading {
+  0% {
+    color: #000;
+  }
+  100% {
+    color: #FFF;
+  }
 }
 
 .header-container {

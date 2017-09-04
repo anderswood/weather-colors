@@ -1,5 +1,7 @@
 import moment from 'moment';
 
+import { geoKey } from './key';
+
 export const currentWeather = (weatherData) => {
   return {
     currentTime: weatherData.currently.time,
@@ -75,4 +77,8 @@ export const fetchWeather = (key, lat, long) => {
     })
   })
   .then(jsonWeather => jsonWeather.json())
+}
+
+export const fetchCoords = (address) => {
+  return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geoKey}`)
 }

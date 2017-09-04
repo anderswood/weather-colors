@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { geoKey } from './helpers/key';
+import { fetchCoords } from './helpers/helper';
 
 export default class Inputs extends Component {
   constructor () {
@@ -11,17 +11,13 @@ export default class Inputs extends Component {
   }
 
   handleWeather () {
-    this.getCoordinates(this.state.location)
+    fetchCoords(this.state.location)
     .then(jsonGeoData => jsonGeoData.json())
     .then(geoData => {
       const coords = geoData.results[0].geometry.location;
       console.log(geoData.results);
       this.props.updateWeather(coords.lat, coords.lng);
     })
-  }
-
-  getCoordinates (address) {
-    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geoKey}`)
   }
 
   render () {
@@ -35,7 +31,6 @@ export default class Inputs extends Component {
                   onChange={ e => this.setState({location: e.target.value}) }/>
           <button onClick={() => this.handleWeather() }>GO!</button>
         </label>
-
 
       </section>
     )

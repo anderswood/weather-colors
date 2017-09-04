@@ -29,14 +29,14 @@ class App extends Component {
     fetchWeather(key, lat, long)
     .then(weather => {
       const currentDesc = weather.currently.icon
-      const picURL = conditions[currentDesc].backgroundURL;
       const rGBValues = conditions[currentDesc].color;
+      const picURL = conditions[currentDesc].backgroundURL;
+      const headerStyle = { background: `rgba(${rGBValues}, 0.6)` };
       const appStyle = {
         background: `url(${picURL})`,
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed'
       };
-      const headerStyle = { background: `rgba(${rGBValues}, 0.6)` };
 
       this.setState({
         isLoading: false,
