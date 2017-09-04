@@ -1,40 +1,41 @@
 import React, { Component } from 'react';
 
-// import { key } from './key';
+import { geoKey } from './key';
 
 export default class Inputs extends Component {
   constructor () {
     super()
     this.state = {
-      lat: 40.016457,
-      long: -105.285884
+      location: '',
     }
   }
 
   handleWeather () {
-    this.props.updateWeather(this.state.lat, this.state.long)
+    this.getCoordinates(this.state.location)
+    .then(jsonGeoData => jsonGeoData.json())
+    .then(geoData => {
+      const coords = geoData.results[0].geometry.location;
+      console.log(geoData.results);
+      this.props.updateWeather(coords.lat, coords.lng);
+    })
+  }
+
+  getCoordinates (address) {
+    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geoKey}`)
   }
 
   render () {
     return (
       <section className='inputs-container'>
 
-        <h3>Location:</h3>
-        <label className='latitude-label'>
+        <label className='location-label'>
           <h4>Latitude</h4>
-          <input  className='latitude-input'
-                  placeholder='latitude'
-                  value={ this.state.lat }
-                  onChange={ e => this.setState({lat: e.target.value}) }/>
+          <input  className='location-input'
+                  placeholder='address or location, e.g. Boulder, CO'
+                  value={ this.state.location }
+                  onChange={ e => this.setState({location: e.target.value}) }/>
         </label>
 
-        <label className='longitude-label'>
-          <h4>Longitude</h4>
-          <input  className='longitude-input'
-                  placeholder='longitude'
-                  value={ this.state.long }
-                  onChange={ e => this.setState({long: e.target.value}) }/>
-        </label>
         <button onClick={() => this.handleWeather() }>GO!</button>
 
       </section>
