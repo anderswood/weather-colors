@@ -7,6 +7,7 @@ export default class Inputs extends Component {
     super()
     this.state = {
       location: '',
+      validInput: true
     }
   }
 
@@ -14,9 +15,15 @@ export default class Inputs extends Component {
     fetchCoords(this.state.location)
     .then(jsonGeoData => jsonGeoData.json())
     .then(geoData => {
-      const coords = geoData.results[0].geometry.location;
-      console.log(geoData.results);
-      this.props.updateWeather(coords.lat, coords.lng);
+      if (geoData.status === 'ZERO_RESULTS') {
+        this.props.updateWeather('', '', '', '', false)
+      } else {
+        const coords = geoData.results[0].geometry.location;
+        const town = geoData.results[0].address_components[0].long_name;
+        const state = geoData.results[0].address_components[2].short_name;
+
+        this.props.updateWeather(coords.lat, coords.lng, town, state, true);
+      }
     })
   }
 
@@ -31,6 +38,8 @@ export default class Inputs extends Component {
                   onChange={ e => this.setState({location: e.target.value}) }/>
           <button onClick={() => this.handleWeather() }>GO!</button>
         </label>
+
+        <div></div>
 
       </section>
     )

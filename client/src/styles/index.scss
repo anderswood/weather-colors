@@ -34,6 +34,7 @@ body {
   }
   .Current-container {
     display: flex;
+    justify-content: center;
     align-items: center;
     .Current-descr {
       width: 70%;
@@ -46,6 +47,9 @@ body {
       font-size: 65px;
       text-align: center;
       margin: 0;
+    }
+    .invalid-location {
+      color: rgb(200, 0, 0);
     }
   }
 }

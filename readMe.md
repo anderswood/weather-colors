@@ -12,6 +12,9 @@
 
 ![Weather at QuickLeft]()
 
+# Next Steps
+* Improve error handling with location inputs, e.g. consistent output of 'town' and 'state'
+* 
 
 # Resources
 * [react.js](https://facebook.github.io/react/): javascript framework used to build sectionStyle

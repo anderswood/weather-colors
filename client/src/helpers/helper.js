@@ -11,6 +11,23 @@ export const currentWeather = (weatherData) => {
   }
 }
 
+export const fetchWeather = (key, lat, long) => {
+  return fetch('/api/weather', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      key: key,
+      lat: lat,
+      long: long
+    })
+  })
+  .then(jsonWeather => jsonWeather.json())
+}
+
+export const fetchCoords = (address) => {
+  return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geoKey}`)
+}
+
 export const minutelyData = (weatherData) => {
   let xTickValuesArr = [];
   let xTickFormatArr = [];
@@ -64,21 +81,4 @@ export const dailyData = (weatherData) => {
     data: weatherData.daily.data
   }
 
-}
-
-export const fetchWeather = (key, lat, long) => {
-  return fetch('/api/weather', {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({
-      key: key,
-      lat: lat,
-      long: long
-    })
-  })
-  .then(jsonWeather => jsonWeather.json())
-}
-
-export const fetchCoords = (address) => {
-  return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geoKey}`)
 }

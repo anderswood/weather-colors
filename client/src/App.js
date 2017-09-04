@@ -16,16 +16,24 @@ class App extends Component {
       isLoading: true,
       weather: {},
       appStyle: { background: 'url(http://i.imgur.com/7f2Mwmj.png)' },
-      headerStyle: { background: 'rgba(0, 0, 0, 0.6)' }
+      headerStyle: { background: 'rgba(0, 0, 0, 0.6)' },
+      town: '',
+      state: '',
+      locationValid: true
     }
   }
 
   componentDidMount () {
-    this.updateWeather(40.016457, -105.285884)
+    this.updateWeather(40.016457, -105.285884, 'Boulder', 'CO', true)
   }
 
-  updateWeather (lat, long) {
-    this.setState({isLoading: true});
+  updateWeather (lat, long, town, state, locationValid) {
+    this.setState({isLoading: true, locationValid: locationValid});
+
+    if (!locationValid) {
+      return this.setState({isLoading: false, locationValid: locationValid});
+    }
+
     fetchWeather(key, lat, long)
     .then(weather => {
       const currentDesc = weather.currently.icon
@@ -42,7 +50,9 @@ class App extends Component {
         isLoading: false,
         weather: weather,
         appStyle: appStyle,
-        headerStyle: headerStyle
+        headerStyle: headerStyle,
+        town: town,
+        state: state
       });
     })
   }
@@ -62,7 +72,10 @@ class App extends Component {
           <Favicon url={['https://maxcdn.icons8.com/windows10/PNG/512/Holidays/snowflake-512.png']}/>
           <div className='header-container' style={ this.state.headerStyle }>
             <Inputs updateWeather={ this.updateWeather.bind(this) } />
-            <CurrentCond weatherObj={ this.state.weather } />
+            <CurrentCond  weatherObj={ this.state.weather }
+                          town={ this.state.town }
+                          state={ this.state.state }
+                          locationValid={ this.state.locationValid }/>
           </div>
           <Forecast weatherObj={ this.state.weather } />
         </section>
