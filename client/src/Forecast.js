@@ -1,8 +1,8 @@
 import React from 'react';
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 
-import { currentWeather, minutelyData, dailyData, hourlyData } from './helper';
-import { conditions } from './conditionsObj';
+import { currentWeather, minutelyData, dailyData, hourlyData } from './helpers/helper';
+import { conditions } from './helpers/conditionsObj';
 
 const Forecast = ({weatherObj}) => {
     const currentDescription = currentWeather(weatherObj).icon;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { geoKey } from './key';
+import { geoKey } from './helpers/key';
 
 export default class Inputs extends Component {
   constructor () {
@@ -29,14 +29,13 @@ export default class Inputs extends Component {
       <section className='inputs-container'>
 
         <label className='location-label'>
-          <h4>Latitude</h4>
           <input  className='location-input'
                   placeholder='address or location, e.g. Boulder, CO'
                   value={ this.state.location }
                   onChange={ e => this.setState({location: e.target.value}) }/>
+          <button onClick={() => this.handleWeather() }>GO!</button>
         </label>
 
-        <button onClick={() => this.handleWeather() }>GO!</button>
 
       </section>
     )

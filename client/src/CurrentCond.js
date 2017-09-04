@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-import { currentWeather } from './helper';
+import { currentWeather } from './helpers/helper';
 
 const CurrentCond = ({weatherObj}) => {
   const currentData = currentWeather(weatherObj);

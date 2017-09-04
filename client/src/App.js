@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Favicon from 'react-favicon';
-import './App.css';
+import './styles/App.css';
 
 import Inputs from './Inputs';
 import CurrentCond from './CurrentCond';
 import Forecast from './Forecast';
-import { fetchWeather } from './helper';
-import { conditions } from './conditionsObj';
-import { key } from './key';
+import { fetchWeather } from './helpers/helper';
+import { conditions } from './helpers/conditionsObj';
+import { key } from './helpers/key';
 
 class App extends Component {
   constructor () {
