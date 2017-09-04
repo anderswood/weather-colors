@@ -22,3 +22,4 @@ yarn-error.log*
 
 key.js
 .DS_Store
+src/**/*.css

@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App-container {
+  // background-size: cover;
+  // background-attachment: fixed;
+  height: 100vh;
+  padding: 10px;
+}
+
+.header-container {
+  margin-bottom: 15px;
+  .inputs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Current-container {
+    display: flex;
+    align-items: center;
+    .Current-descr {
+      width: 70%;
+      text-align: right;
+      margin: 0;
+      padding: 8px;
+    }
+    .Current-temp {
+      width: 30%;
+      font-size: 65px;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+.forecast-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  .forecast-minutely {
+
+  }
+  .forecast-hourly {
+
+  }
+  .forecast-daily {
+
+  }
+}
+
+.forecast {
+  min-width: 275px;
+  margin: 15px;
+  border-radius: 13px;
+}
+
+.forecast-hourly {
+  /*width: 200px;*/
+  /*height: 350px;*/
+}

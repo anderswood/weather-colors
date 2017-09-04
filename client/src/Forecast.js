@@ -7,7 +7,8 @@ import { conditions } from './conditionsObj';
 const Forecast = ({weatherObj}) => {
     const currentDescription = currentWeather(weatherObj).icon;
     const rGBValues = conditions[currentDescription].color;
-    const divStyle = { background: `rgb(${rGBValues})` };
+    const forecastStyle = { background: `rgb(${rGBValues})` };
+    const containerStyle = { background: `rgba(${rGBValues}, .6)` };
 
     const minuteData = minutelyData(weatherObj);
     const hourData = hourlyData(weatherObj);
@@ -18,8 +19,9 @@ const Forecast = ({weatherObj}) => {
     }
 
     return (
-      <section className='forecast-container'>
-        <div className='forecast forecast-minutely' style={ divStyle }>
+      <section  className='forecast-container'
+                style={ containerStyle }>
+        <div className='forecast forecast-minutely' style={ forecastStyle }>
           <VictoryChart
             // theme={ VictoryTheme.material }
               style={ chartStyle }
@@ -37,7 +39,7 @@ const Forecast = ({weatherObj}) => {
               y='precipProbability'/>
           </VictoryChart>
         </div>
-        <div className='forecast forecast-hourly' style={ divStyle }>
+        <div className='forecast forecast-hourly' style={ forecastStyle }>
           <VictoryChart
                         // theme={ VictoryTheme.material }
                         style={ chartStyle }
@@ -54,7 +56,7 @@ const Forecast = ({weatherObj}) => {
                         y='temperature'/>
           </VictoryChart>
         </div>
-        <div className='forecast forecast-daily' style={ divStyle }>
+        <div className='forecast forecast-daily' style={ forecastStyle }>
           <VictoryChart
                         // theme={ VictoryTheme.material }
                         style={ chartStyle }

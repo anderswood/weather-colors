@@ -11,9 +11,9 @@ const CurrentCond = ({weatherObj}) => {
   const summary = currentData.summary.toLowerCase();
 
   return (
-    <section className='current-container'>
-      <h2>Howdy! It's {time} on {date} and your local weather is {summary}</h2>
-      <h2>{Math.round(temp)}°F</h2>
+    <section className='Current-container'>
+      <h2 className='Current-descr'>Howdy! It's {time} on {date} and your local weather is {summary}</h2>
+      <h2 className='Current-temp'>{Math.round(temp)}°F</h2>
     </section>
   )
 }

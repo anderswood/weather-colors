@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       isLoading: true,
       weather: {},
-      appStyle: { background: 'url(http://i.imgur.com/7f2Mwmj.png)' }
+      appStyle: { background: 'url(http://i.imgur.com/7f2Mwmj.png)' },
+      headerStyle: { background: 'rgba(0, 0, 0, 0.6)' }
     }
   }
 
@@ -27,18 +28,27 @@ class App extends Component {
     this.setState({isLoading: true});
     fetchWeather(key, lat, long)
     .then(weather => {
-      let picURL = conditions[weather.currently.icon].backgroundURL;
-      let sectionStyle = { background: `url(${picURL})` };
+      const currentDesc = weather.currently.icon
+      const picURL = conditions[currentDesc].backgroundURL;
+      const rGBValues = conditions[currentDesc].color;
+      const appStyle = {
+        background: `url(${picURL})`,
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed'
+      };
+      const headerStyle = { background: `rgba(${rGBValues}, 0.6)` };
 
       this.setState({
         isLoading: false,
         weather: weather,
-        appStyle: sectionStyle
+        appStyle: appStyle,
+        headerStyle: headerStyle
       });
     })
   }
 
   render() {
+
     if (this.state.isLoading) {
       return (
         <section className="App-container" style={ this.state.appStyle } >
@@ -50,7 +60,7 @@ class App extends Component {
       return (
         <section className="App-container" style={ this.state.appStyle } >
           <Favicon url={['https://maxcdn.icons8.com/windows10/PNG/512/Holidays/snowflake-512.png']}/>
-          <div className='header-container'>
+          <div className='header-container' style={ this.state.headerStyle }>
             <Inputs updateWeather={ this.updateWeather.bind(this) } />
             <CurrentCond weatherObj={ this.state.weather } />
           </div>

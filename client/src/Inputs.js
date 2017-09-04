@@ -21,6 +21,7 @@ export default class Inputs extends Component {
 
         <h3>Location:</h3>
         <label className='latitude-label'>
+          <h4>Latitude</h4>
           <input  className='latitude-input'
                   placeholder='latitude'
                   value={ this.state.lat }
@@ -28,12 +29,13 @@ export default class Inputs extends Component {
         </label>
 
         <label className='longitude-label'>
+          <h4>Longitude</h4>
           <input  className='longitude-input'
                   placeholder='longitude'
                   value={ this.state.long }
                   onChange={ e => this.setState({long: e.target.value}) }/>
         </label>
-        <button onClick={() => this.handleWeather() }>CLICK</button>
+        <button onClick={() => this.handleWeather() }>GO!</button>
 
       </section>
     )
