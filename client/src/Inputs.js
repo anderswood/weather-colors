@@ -30,17 +30,15 @@ export default class Inputs extends Component {
   render () {
     return (
       <section className='inputs-container'>
-
         <label className='location-label'>
           <input  className='location-input'
                   placeholder='address or location, e.g. Boulder, CO'
                   value={ this.state.location }
                   onChange={ e => this.setState({location: e.target.value}) }/>
-          <button onClick={() => this.handleWeather() }>GO!</button>
+          <button onClick={() => this.handleWeather() }>
+            <h4>GO!</h4>
+          </button>
         </label>
-
-        <div></div>
-
       </section>
     )
   }

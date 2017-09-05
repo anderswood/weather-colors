@@ -6,7 +6,7 @@ body {
 
 .App-container {
   height: 100vh;
-  padding: 10px;
+  padding: 20px;
 }
 
 .App-loading {
@@ -25,26 +25,65 @@ body {
   }
 }
 
+.Banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 15px;
+  padding: 5px;
+  .Banner-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    margin: 0;
+    color: #FFF;
+    .Banner-c, .Banner-v {
+      font-size: 50px
+    }
+  }
+  .Banner-svg {
+    font-size: 0;
+    svg {
+      width: 75px;
+      height: 75px;
+    }
+  }
+}
+
 .header-container {
   margin-bottom: 15px;
   .inputs-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    .location-label {
+      .location-input {
+        
+      }
+      button {
+        h4 {
+          margin: 0;
+        }
+      }
+    }
   }
   .Current-container {
     display: flex;
     justify-content: center;
     align-items: center;
     .Current-descr {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #FFF;
       width: 70%;
       text-align: right;
       margin: 0;
       padding: 8px;
     }
     .Current-temp {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #FFF;
       width: 30%;
-      font-size: 65px;
+      font-size: 80px;
       text-align: center;
       margin: 0;
     }

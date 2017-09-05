@@ -23,10 +23,10 @@ const Forecast = ({weatherObj}) => {
     return (
       <section  className='forecast-container'
                 style={ containerStyle }>
-        <MinutelyForecast forecastStyle={ forecastStyle }
-                          minuteData={ minuteData }/>
-        <HourlyForecast forecastStyle={ forecastStyle }
-                        hourData={ hourData }/>
+        {/* <MinutelyForecast forecastStyle={ forecastStyle }
+                          minuteData={ minuteData }/> */}
+        {/* <HourlyForecast forecastStyle={ forecastStyle }
+                        hourData={ hourData }/> */}
         <DailyForecast  forecastStyle={ forecastStyle }
                         dayData={ dayData }/>
       </section>

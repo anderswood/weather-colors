@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Favicon from 'react-favicon';
 import './styles/App.css';
 
+import Banner from './Banner';
 import Inputs from './Inputs';
 import CurrentCond from './CurrentCond';
 import Forecast from './Forecast';
@@ -16,7 +17,7 @@ class App extends Component {
       isLoading: true,
       weather: {},
       appStyle: { background: 'url(http://i.imgur.com/7f2Mwmj.png)' },
-      headerStyle: { background: 'rgba(0, 0, 0, 0.6)' },
+      themeColor: '0, 0, 0',
       town: '',
       state: '',
       locationValid: true
@@ -39,7 +40,7 @@ class App extends Component {
       const currentDesc = weather.currently.icon
       const rGBValues = conditions[currentDesc].color;
       const picURL = conditions[currentDesc].backgroundURL;
-      const headerStyle = { background: `rgba(${rGBValues}, 0.6)` };
+      // const headerStyle = { background: `rgba(${rGBValues}, 0.6)` };
       const appStyle = {
         background: `url(${picURL})`,
         backgroundSize: 'cover',
@@ -50,7 +51,7 @@ class App extends Component {
         isLoading: false,
         weather: weather,
         appStyle: appStyle,
-        headerStyle: headerStyle,
+        themeColor: rGBValues,
         town: town,
         state: state
       });
@@ -58,6 +59,7 @@ class App extends Component {
   }
 
   render() {
+    const headerStyle = { background: `rgba(${this.state.themeColor}, 0.6)` }
 
     if (this.state.isLoading) {
       return (
@@ -70,7 +72,8 @@ class App extends Component {
       return (
         <section className="App-container" style={ this.state.appStyle } >
           <Favicon url={['https://maxcdn.icons8.com/windows10/PNG/512/Holidays/snowflake-512.png']}/>
-          <div className='header-container' style={ this.state.headerStyle }>
+          <Banner themeColor={ this.state.themeColor } />
+          <div className='header-container' style={ headerStyle }>
             <Inputs updateWeather={ this.updateWeather.bind(this) } />
             <CurrentCond  weatherObj={ this.state.weather }
                           town={ this.state.town }

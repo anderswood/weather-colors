@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 
 const HourlyForecast = ({ forecastStyle, hourData }) => {
 
