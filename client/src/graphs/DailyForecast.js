@@ -8,7 +8,7 @@ const DailyForecast = ({ forecastStyle, dayData }) => {
       angle: -90,
       textAnchor: 'end',
       verticalAnchor: 'middle',
-    },
+    }
   }
 
   const yTickStyle = {
@@ -23,7 +23,6 @@ const DailyForecast = ({ forecastStyle, dayData }) => {
   return (
     <div className='forecast forecast-daily' style={ forecastStyle }>
       <VictoryChart domainPadding={{x: [15, 10]}}
-                    title={'HELLOOOOO'}
                     padding={{top: 50, right: 20, bottom: 85, left: 80}}
                     animate={{ duration: 500 }}>
         <VictoryAxis  style={ xTickStyle }

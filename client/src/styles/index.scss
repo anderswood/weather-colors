@@ -26,6 +26,11 @@ body {
   }
 }
 
+.Banner-container, .header-container, .forecast-container {
+  max-width: 1500px;
+  margin: auto;
+}
+
 .Banner-container {
   display: flex;
   justify-content: center;
