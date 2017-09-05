@@ -1,4 +1,5 @@
 import moment from 'moment';
+import tz from 'moment-timezone';
 
 import { geoKey } from './key';
 
@@ -7,7 +8,8 @@ export const currentWeather = (weatherData) => {
     currentTime: weatherData.currently.time,
     icon: weatherData.currently.icon,
     summary: weatherData.currently.summary,
-    currentTemp: weatherData.currently.temperature
+    currentTemp: weatherData.currently.temperature,
+    timezone: weatherData.timezone
   }
 }
 
@@ -31,9 +33,10 @@ export const fetchCoords = (address) => {
 export const minutelyData = (weatherData) => {
   let xTickValuesArr = [];
   let xTickFormatArr = [];
+  const timezone = weatherData.timezone;
 
   for (let i=0; i < weatherData.minutely.data.length; i++) {
-    const time = moment.unix(weatherData.minutely.data[i].time).format('h:mm a');
+    const time = moment.unix(weatherData.minutely.data[i].time).tz(timezone).format('h:mm a');
     xTickFormatArr.push(time);
     xTickValuesArr.push(i + 1);
   }
@@ -49,9 +52,10 @@ export const minutelyData = (weatherData) => {
 export const hourlyData = (weatherData) => {
   let xTickValuesArr = [];
   let xTickFormatArr = [];
+  const timezone = weatherData.timezone;
 
   for (let i=0; i < weatherData.hourly.data.length; i++) {
-    const time = moment.unix(weatherData.hourly.data[i].time).format('h a');
+    const time = moment.unix(weatherData.hourly.data[i].time).tz(timezone).format('h a');
     xTickFormatArr.push(time);
     xTickValuesArr.push(i + 1);
   }
@@ -67,9 +71,10 @@ export const hourlyData = (weatherData) => {
 export const dailyData = (weatherData) => {
   let xTickValuesArr = [];
   let xTickFormatArr = [];
+  const timezone = weatherData.timezone;
 
   for (let i=0; i < weatherData.daily.data.length; i++) {
-    const time = moment.unix(weatherData.daily.data[i].time).format('dddd');
+    const time = moment.unix(weatherData.daily.data[i].time).tz(timezone).format('dddd');
     xTickFormatArr.push(time);
     xTickValuesArr.push(i + 1);
   }

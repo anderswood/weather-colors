@@ -29,6 +29,7 @@ export default class Inputs extends Component {
 
   render () {
     const inputStyle = { outlineColor: `rgb(${this.props.themeColor})` }
+    const btnStyle = { border: `1px solid rgb(${this.props.themeColor})` }
 
     return (
       <section className='inputs-container'>
@@ -38,7 +39,8 @@ export default class Inputs extends Component {
                   placeholder='address or location, e.g. Boulder, CO'
                   value={ this.state.location }
                   onChange={ e => this.setState({location: e.target.value}) }/>
-          <button onClick={() => this.handleWeather() }>
+          <button onClick={() => this.handleWeather() }
+                  style={ btnStyle }>
             <h4>GO!</h4>
           </button>
         </label>

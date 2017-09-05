@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.1",
     "react": "^15.6.1",

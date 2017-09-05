@@ -1,12 +1,14 @@
 import React from 'react';
 import moment from 'moment';
+import tz from 'moment-timezone';
 
 import { currentWeather } from './helpers/helper';
 
 const CurrentCond = ({weatherObj, town, state, locationValid}) => {
   const currentData = currentWeather(weatherObj);
-  const time = moment.unix(currentData.currentTime).format('h:mm a');
-  const date = moment.unix(currentData.currentTime).format('MMMM Do');
+  const timezone = currentData.timezone;
+  const time = moment.unix(currentData.currentTime).tz(timezone).format('h:mm a');
+  const date = moment.unix(currentData.currentTime).tz(timezone).format('MMMM Do');
   const temp = currentData.currentTemp;
   const summary = currentData.summary.toLowerCase();
 

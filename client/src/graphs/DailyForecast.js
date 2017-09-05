@@ -6,8 +6,7 @@ const DailyForecast = ({ forecastStyle, dayData }) => {
     tickLabels: {
       angle: -90,
       textAnchor: 'end',
-      verticalAnchor: 'middle',
-      lineSpacing: 20
+      verticalAnchor: 'middle'
     }
   }
 
