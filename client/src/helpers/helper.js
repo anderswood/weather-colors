@@ -71,19 +71,23 @@ export const hourlyData = (weatherData) => {
 export const dailyData = (weatherData) => {
   let xTickValuesArr = [];
   let xTickFormatArr = [];
+  let dataArr = [];
   const timezone = weatherData.timezone;
 
   for (let i=0; i < weatherData.daily.data.length; i++) {
     const time = moment.unix(weatherData.daily.data[i].time).tz(timezone).format('dddd');
+    const yVal = weatherData.daily.data[i].temperatureHigh;
+
     xTickFormatArr.push(time);
     xTickValuesArr.push(i + 1);
+    dataArr.push({x: i+time, y: yVal});
   }
 
   return {
     forecastType: 'Daily',
     xTickValues: xTickValuesArr,
     xTickFormat: xTickFormatArr,
-    data: weatherData.daily.data
+    data: dataArr
   }
 
 }

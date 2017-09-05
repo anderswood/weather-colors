@@ -5,8 +5,7 @@ const DailyForecast = ({ forecastStyle, dayData }) => {
   const xTickStyle = {
     tickLabels: {
       angle: -90,
-      textAnchor: 'end',
-      verticalAnchor: 'middle'
+      textAnchor: 'end'
     }
   }
 
@@ -30,8 +29,6 @@ const DailyForecast = ({ forecastStyle, dayData }) => {
                       label='Max Temperature'
                       tickFormat={(y) => (`${y}°F`)} />
         <VictoryBar data={ dayData.data }
-                    x='time'
-                    y='temperatureHigh'
                     labels={(d) => `${Math.round(d.y)}°F`} />
       </VictoryChart>
     </div>

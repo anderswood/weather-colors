@@ -1,5 +1,5 @@
 # Overview
-Color Vane is a weather app built in React.js that pulls weather data from the Dark Sky API. The app's color theme changes with the local weather: turning bright orange when it's sunny and dreary gray when it's foggy.
+Color Vane is a fully responsive weather app built in React.js that pulls weather data from the Dark Sky API. The app's color theme changes with the local weather: turning bright orange when it's sunny and dreary gray when it's foggy.
 
 # Installation and Setup Instructions
 * clone repo
@@ -8,9 +8,11 @@ Color Vane is a weather app built in React.js that pulls weather data from the D
 * hop on over to localhost:3000 and get your color themed weather on!
 
 # Screenshots
-![Landing Page]()
+Boulder Weather:
+![Boulder Weather](https://i.imgur.com/dPtCIkA.png)
 
-![Weather at QuickLeft]()
+Kentucky Weather:
+![Kentucky Weather:](https://i.imgur.com/qhqtsp7.png)
 
 # Next Steps
 * Improve error handling with location inputs, e.g. consistent output of 'town' and 'state'
@@ -24,6 +26,7 @@ Color Vane is a weather app built in React.js that pulls weather data from the D
 * [dark sky API](https://darksky.net/dev): weather API used to pull in the weather data
 * [google geocoding API](https://developers.google.com/maps/documentation/geocoding/intro): converts addresses into geographic coordinates
 * [moment](https://momentjs.com/): 'Parse, validate, manipulate, and display dates and times in JavaScript'
+* [moment timezone](https://momentjs.com/timezone/): 'Parse and display dates in any timezone'
 * [victory](https://formidable.com/open-source/victory/): 'React.js components for modular charting and data visualization'
 * [react-favicon](https://www.npmjs.com/package/react-favicon): 'Control the favicon from a React app'
 * [concurrently](https://www.npmjs.com/package/concurrently): employed to run the server and app in parallel with one `npm start` command
