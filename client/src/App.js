@@ -74,7 +74,8 @@ class App extends Component {
           <Favicon url={['https://maxcdn.icons8.com/windows10/PNG/512/Holidays/snowflake-512.png']}/>
           <Banner themeColor={ this.state.themeColor } />
           <div className='header-container' style={ headerStyle }>
-            <Inputs updateWeather={ this.updateWeather.bind(this) } />
+            <Inputs updateWeather={ this.updateWeather.bind(this) }
+                    themeColor={ this.state.themeColor }/>
             <CurrentCond  weatherObj={ this.state.weather }
                           town={ this.state.town }
                           state={ this.state.state }

@@ -10,6 +10,7 @@ body {
 }
 
 .App-loading {
+  font-family: 'Josefin Sans', sans-serif;
   color: #FFF;
   margin-top: 50%;
   text-align: center;
@@ -44,25 +45,43 @@ body {
   .Banner-svg {
     font-size: 0;
     svg {
+      margin-right: -16px;
+      margin-left: -4px;
       width: 75px;
       height: 75px;
     }
   }
 }
 
+.location-input::-webkit-input-placeholder {
+  text-indent: 4px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 .header-container {
   margin-bottom: 15px;
   .inputs-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     .location-label {
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+      font-size: 0;
       .location-input {
-        
+        width: 200px;
+        font-family: 'Josefin Sans', sans-serif;
+        text-indent: 4px;
+        border: none;
       }
       button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        margin-left: 10px;
         h4 {
-          margin: 0;
+          margin: 2px 0 0 0;
+          font-family: 'Josefin Sans', sans-serif;
         }
       }
     }
@@ -118,4 +137,15 @@ body {
 .forecast-hourly {
   /*width: 200px;*/
   /*height: 350px;*/
+}
+
+
+@media screen and (max-width: 650px) {
+  .header-container .Current-container .Current-descr {
+    font-size: 16px;
+  }
+
+  .header-container .Current-container .Current-temp {
+    font-size: 36px;
+  }
 }

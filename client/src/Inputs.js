@@ -28,10 +28,17 @@ export default class Inputs extends Component {
   }
 
   render () {
+    const inputStyle = {
+      outlineColor: `rgb(${this.props.themeColor})`,
+      // background: `rgba(${this.props.themeColor}, 0.6)`
+      // background: `rgba(${this.props.themeColor}, 0.6)`
+    }
+
     return (
       <section className='inputs-container'>
         <label className='location-label'>
-          <input  className='location-input'
+          <input  style={ inputStyle }
+                  className='location-input'
                   placeholder='address or location, e.g. Boulder, CO'
                   value={ this.state.location }
                   onChange={ e => this.setState({location: e.target.value}) }/>
