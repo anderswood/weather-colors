@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { currentWeather, minutelyData, dailyData, hourlyData } from './helpers/helper';
+import { currentWeather, dailyData } from './helpers/helper';
 import { conditions } from './helpers/conditionsObj';
-import MinutelyForecast from './graphs/MinutelyForecast';
-import HourlyForecast from './graphs/HourlyForecast';
+// import MinutelyForecast from './graphs/MinutelyForecast';
+// import HourlyForecast from './graphs/HourlyForecast';
 import DailyForecast from './graphs/DailyForecast';
 
 const Forecast = ({weatherObj}) => {
@@ -12,13 +12,9 @@ const Forecast = ({weatherObj}) => {
     const forecastStyle = { background: `rgb(${rGBValues})` };
     const containerStyle = { background: `rgba(${rGBValues}, .6)` };
 
-    const minuteData = minutelyData(weatherObj);
-    const hourData = hourlyData(weatherObj);
+    // const minuteData = minutelyData(weatherObj);
+    // const hourData = hourlyData(weatherObj);
     const dayData = dailyData(weatherObj);
-    // const chartStyle = {
-    //   width: '250px',
-    //   height: '250px'
-    // }
 
     return (
       <section  className='forecast-container'

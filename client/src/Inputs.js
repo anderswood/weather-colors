@@ -28,11 +28,7 @@ export default class Inputs extends Component {
   }
 
   render () {
-    const inputStyle = {
-      outlineColor: `rgb(${this.props.themeColor})`,
-      // background: `rgba(${this.props.themeColor}, 0.6)`
-      // background: `rgba(${this.props.themeColor}, 0.6)`
-    }
+    const inputStyle = { outlineColor: `rgb(${this.props.themeColor})` }
 
     return (
       <section className='inputs-container'>

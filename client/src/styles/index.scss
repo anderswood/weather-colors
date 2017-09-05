@@ -122,26 +122,12 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  .forecast-minutely {
-
-  }
-  .forecast-hourly {
-
-  }
-  .forecast-daily {
-
-  }
 }
 
 .forecast {
   min-width: 275px;
   margin: 15px;
-  border-radius: 13px;
-}
-
-.forecast-hourly {
-  /*width: 200px;*/
-  /*height: 350px;*/
+  border-radius: 8px;
 }
 
 

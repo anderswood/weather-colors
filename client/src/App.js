@@ -15,12 +15,12 @@ class App extends Component {
     super ();
     this.state = {
       isLoading: true,
+      locationValid: true,
       weather: {},
       appStyle: { background: 'url(http://i.imgur.com/7f2Mwmj.png)' },
       themeColor: '0, 0, 0',
       town: '',
-      state: '',
-      locationValid: true
+      state: ''
     }
   }
 
@@ -40,7 +40,6 @@ class App extends Component {
       const currentDesc = weather.currently.icon
       const rGBValues = conditions[currentDesc].color;
       const picURL = conditions[currentDesc].backgroundURL;
-      // const headerStyle = { background: `rgba(${rGBValues}, 0.6)` };
       const appStyle = {
         background: `url(${picURL})`,
         backgroundSize: 'cover',
