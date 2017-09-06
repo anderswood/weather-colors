@@ -6,13 +6,8 @@ const MinutelyForecast = ({ forecastStyle, minuteData }) => {
   return (
     <div className='forecast forecast-minutely' style={ forecastStyle }>
       <VictoryChart
-        // theme={ VictoryTheme.material }
-        // style={ chartStyle }
           animate={{ duration: 500 }}>
-        <VictoryAxis
-          // tickValues={dayData.xTickFormat}
-          // tickFormat={hourData.xTickFormat}
-        />
+        <VictoryAxis/>
         <VictoryAxis  dependentAxis
           domain={[0,1]}
           label='Precip Probability'

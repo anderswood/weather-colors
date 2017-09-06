@@ -7,27 +7,16 @@ const HourlyForecast = ({ forecastStyle, hourData }) => {
     tickLabels: {
       angle: -90,
       textAnchor: 'end'
-      // fontSize: 40
     },
     axisLabel: {
-      // fontSize: 50,
       padding: 25
     }
   }
-
-  // const MyLabel = () => {
-  //
-  // }
-
-  // console.log(hourData);
 
   return (
     <div className='forecast forecast-hourly' style={ forecastStyle }>
       <VictoryChart animate={{ duration: 500 }}>
         <VictoryAxis style = { tickStyle }
-          // tickLabelComponent={ <VictoryLabel angle={-90} textAnchor={'end'} verticalAnchor={'middle'} /> }
-          // tickValues={hourData.xTickFormat}
-          // tickCount={49}
           tickFormat={hourData.xTickFormat}
         />
         <VictoryAxis  dependentAxis
