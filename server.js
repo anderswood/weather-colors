@@ -13,8 +13,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-
-
 app.post('/api/weather', (req, res) => {
   const { lat, long } = req.body;
   const DSkey = process.env.key;
