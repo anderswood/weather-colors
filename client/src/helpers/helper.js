@@ -1,8 +1,6 @@
 import moment from 'moment';
 import tz from 'moment-timezone';
 
-import { geoKey } from './key';
-
 export const currentWeather = (weatherData) => {
   return {
     currentTime: weatherData.currently.time,

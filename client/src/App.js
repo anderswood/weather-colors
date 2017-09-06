@@ -8,7 +8,6 @@ import CurrentCond from './CurrentCond';
 import Forecast from './Forecast';
 import { fetchWeather } from './helpers/helper';
 import { conditions } from './helpers/conditionsObj';
-import { key } from './helpers/key';
 
 class App extends Component {
   constructor () {
