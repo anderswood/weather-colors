@@ -18,6 +18,7 @@ export default class Inputs extends Component {
       if (geoData.status === 'ZERO_RESULTS') {
         this.props.updateWeather('', '', '', '', false);
       } else {
+        console.log(geoData);
         const coords = geoData.results[0].geometry.location;
         const town = geoData.results[0].address_components[0].long_name;
         const state = geoData.results[0].address_components[2].short_name;

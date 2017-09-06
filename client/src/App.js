@@ -35,7 +35,7 @@ class App extends Component {
       return this.setState({isLoading: false, locationValid: locationValid});
     }
 
-    fetchWeather(key, lat, long)
+    fetchWeather(lat, long)
     .then(weather => {
       const currentDesc = weather.currently.icon
       const rGBValues = conditions[currentDesc].color;

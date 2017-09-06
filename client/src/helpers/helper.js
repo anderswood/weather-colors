@@ -13,12 +13,11 @@ export const currentWeather = (weatherData) => {
   }
 }
 
-export const fetchWeather = (key, lat, long) => {
+export const fetchWeather = (lat, long) => {
   return fetch('/api/weather', {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
-      key: key,
       lat: lat,
       long: long
     })
@@ -27,7 +26,11 @@ export const fetchWeather = (key, lat, long) => {
 }
 
 export const fetchCoords = (address) => {
-  return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geoKey}`)
+  return fetch('/api/coords', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({address: address})
+  })
 }
 
 export const minutelyData = (weatherData) => {
